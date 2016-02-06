@@ -1,0 +1,13 @@
+<h1>Sharing.com</h1>
+<%= link_to 'Add Item', new_item_path %>
+
+<div>Find</div>
+<%= form_tag do %>
+  <input type="text" id="find_by_name" name="find_by_name" />
+  <%= link_to "Find", '/items/find' %>
+<% end %>
+
+<p>Categories</p>
+<% @categories.each do |c| %>
+  <div><%= link_to c.name, "categories/#{c.id}" %> </div>
+<% end %>

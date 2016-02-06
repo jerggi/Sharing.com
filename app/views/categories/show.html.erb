@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Sharin.com', root_url %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<% @items.each do |item| %>
+  <p> <%= link_to item.name, root_url + "items/#{item.id}" %></p>
+<% end %>
