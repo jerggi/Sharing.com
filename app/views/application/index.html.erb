@@ -1,5 +1,4 @@
 <h1>Sharing.com</h1>
-<%= link_to 'Add Item', new_item_path %>
 
 <div>Find</div>
 <%= form_tag do %>
@@ -10,4 +9,10 @@
 <p>Categories</p>
 <% @categories.each do |c| %>
   <div><%= link_to c.name, "categories/#{c.id}" %> </div>
+
+  <%= image_tag c.avatar.url(:medium) %>
+
 <% end %>
+
+<p>Admin section .. </p>
+<%= link_to 'Add category', new_category_path %>
