@@ -10,11 +10,11 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Item.new
+    @category = Category.new
   end
 
   def create
-    @category = Category.new(params[:category])
+    @category = Category.new(category_params)
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Item was successfully created.' }

@@ -10,7 +10,7 @@
 <% @categories.each do |c| %>
   <div><%= link_to c.name, "categories/#{c.id}" %> </div>
 
-  <%= image_tag c.avatar.url(:medium) %>
+  <%= image_tag c.avatar.url(:thumb) %>
 
 <% end %>
 
