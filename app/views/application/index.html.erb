@@ -1,19 +1,29 @@
-<h1>Sharing.com</h1>
+<div class="container">
+	<h1 class="text-center">Sharing.com</h1>
 
-<div>Search</div>
-<%= form_tag('/items/search', method: "get") do %>
-  <%= text_field_tag(:query) %>
-  <%= submit_tag("Search") %>
-<% end %>
+  <div class="text-center">
+  	<%= form_tag('/items/search', method: "get") do %>
+  	  <%= text_field_tag(:query) %>
+  	  <%= submit_tag("Search") %>
+  	<% end %>
+  </div>
 
-<p>Categories</p>
-<% @categories.each do |c| %>
-  <div><%= link_to c.name, "categories/#{c.id}" %> </div>
-  <div><%= link_to "Destroy", c, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
+	<h4>Categories</h4>
+	
+	<% @categories.each do |c| %>
+	  <div class="row">
+  		<div class="col-xs-2">
+        <%= link_to c.name, "categories/#{c.id}" %>
+      </div>
+      <div class="col-xs-2">
+        <%= image_tag c.avatar.url(:thumb) %>
+      </div>
+  		<div class="col-xs-1">
+        <%= link_to "Destroy", c, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+	  </div>
+	<% end %>
 
-  <%= image_tag c.avatar.url(:thumb) %>
-
-<% end %>
-
-<p>Admin section .. </p>
-<%= link_to 'Add category', new_category_path %>
+	<p>Admin section .. </p>
+	<%= link_to 'Add category', new_category_path %>
+</div>
