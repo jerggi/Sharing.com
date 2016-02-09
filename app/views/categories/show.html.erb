@@ -6,6 +6,9 @@
   <%= @category.name %>
 </p>
 
+<%= image_tag @category.avatar.url(:thumb) %>
+
 <% @items.each do |item| %>
+
   <p> <%= link_to item.name, root_url + "items/#{item.id}" %></p>
 <% end %>

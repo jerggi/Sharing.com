@@ -9,6 +9,7 @@
 <p>Categories</p>
 <% @categories.each do |c| %>
   <div><%= link_to c.name, "categories/#{c.id}" %> </div>
+  <div><%= link_to "Destroy", c, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
 
   <%= image_tag c.avatar.url(:thumb) %>
 
