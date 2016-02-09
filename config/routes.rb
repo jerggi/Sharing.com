@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  resources :items, :categories
+  resources :items do
+    get 'search', on: :collection
+  end
+  
+  resources :categories
 
   root 'application#index'
 
   get 'categories/:id' => 'categories#show'
 
   get 'items/:id' => 'items#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

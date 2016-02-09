@@ -1,9 +1,9 @@
 <h1>Sharing.com</h1>
 
-<div>Find</div>
-<%= form_tag do %>
-  <input type="text" id="find_by_name" name="find_by_name" />
-  <%= link_to "Find", '/items/find' %>
+<div>Search</div>
+<%= form_tag('/items/search', method: "get") do %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
 <% end %>
 
 <p>Categories</p>
