@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :all_categories, only: [:new, :edit ]
 
   # GET /items
   # GET /items.json
@@ -15,7 +16,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
-    @categories = Category.all
+    
   end
 
   # GET /items/1/edit
@@ -77,5 +78,9 @@ class ItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
       params.require(:item).permit(:name, :content, :price, :time, :unit, :author, :location, :telephone, :rent)
+    end
+
+    def all_categories
+      @categories = Category.all
     end
 end

@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :destroy]
+  before_action :set_category, only: [:show, :destroy, :edit, :update]
 
   def index
     @categories = Category.all
@@ -11,6 +11,23 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+  end
+
+  def edit
+  end
+
+  # PATCH/PUT /categories/1
+  # PATCH/PUT /categories/1.json
+  def update
+    respond_to do |format|
+      if @category.update(category_params)
+        format.html { redirect_to @category, notice: 'Item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @category }
+      else
+        format.html { render :edit }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def create

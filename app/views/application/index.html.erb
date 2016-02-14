@@ -11,7 +11,7 @@
 
   
   <p>Admin section .. </p>
-  	
+
 	<div class="row">
     <div class="col-xs-2">
         <h4>Categories</h4>
@@ -21,19 +21,24 @@
     </div>
   </div>
 	<% @categories.each do |c| %>
-	  <div class="row">
+    <div class="row">
       <div class="col-xs-2">
-        <div class="pull-left">
+        <%= link_to c.name, "categories/#{c.id}" %>
+      </div>
+    </div>
+	  <div class="row borders">
+      <div class="col-xs-2">
           <%= image_tag c.avatar.url(:thumb) %>
-        </div>
       </div>
   		<div class="col-xs-1">
-        <%= link_to "Destroy", c, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div>
+          <%= link_to "Destroy", c, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div>
+          <%= link_to "Edit", edit_category_path(c)%>
+        </div>
       </div>
 	  </div>
-    <div class="row col-xs-2">
-      <%= link_to c.name, "categories/#{c.id}" %>
-    </div>
 	<% end %>
 
 	<%= link_to 'Add category', new_category_path %>

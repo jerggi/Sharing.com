@@ -12,15 +12,15 @@
 
   <h4>Categories</h4>
 	<% @categories.each do |c| %>
+    <div class="row">
+      <div class="col-xs-2">
+        <%= link_to c.name, "/categories/#{c.id}" %>
+      </div>
+    </div>
 	  <div class="row">
       <div class="col-xs-2">
-        <div class="pull-left">
-          <%= image_tag c.avatar.url(:thumb) %>
-        </div>
+        <%= image_tag c.avatar.url(:thumb) %>
       </div>
 	  </div>
-    <div class="row col-xs-2">
-      <%= link_to c.name, "/categories/#{c.id}" %>
-    </div>
 	<% end %>
 </div>
