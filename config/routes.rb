@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   resources :items do
     get 'search', on: :collection
   end
   
   resources :categories
+  resources :users
 
   root 'application#index'
 
