@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
-<%= link_to 'Sharing.com', root_url %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<%= image_tag @category.avatar.url(:thumb) %>
-
-<% @items.each do |item| %>
-
-  <p> <%= link_to item.name, root_url + "items/#{item.id}" %></p>
-<% end %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <%= link_to 'Home', root_url %>
+  <div class="row">
+    <div class="col-xs-2">
+      <%= @category.name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <%= image_tag @category.avatar.url(:thumb) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <strong>Items:</strong>
+    </div>
+  </div>
+  <% @items.each do |item| %>
+    <div class="row">
+      <div class="col-xs-2">
+        <%= link_to item.name, root_url + "items/#{item.id}" %>
+      </div>
+    </div>
+  <% end %>
+</div>
