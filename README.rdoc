@@ -3,6 +3,13 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+TODO
+* admin, user, non-user routing
+* Bootstrap templates
+* deployment
+* Paperclips for items
+* Refferences (comments)
+
 Things you may want to cover:
 
 * Ruby version
