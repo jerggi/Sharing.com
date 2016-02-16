@@ -14,9 +14,9 @@ Jergus
 * Validacia
 
 Routes:
-admin - categories(crud), users(crud), items(crud)
-non-user - categories(r), users(r-pri itemoch), items(r)
-user - categories(r), users(cru-svoje), items(crud-svoje)
+* admin - categories(crud), users(crud), items(crud)
+* non-user - categories(r), users(r-pri itemoch), items(r)
+* user - categories(r), users(cru-svoje), items(crud-svoje)
 
 
 Nuda:
