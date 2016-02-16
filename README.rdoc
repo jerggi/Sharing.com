@@ -4,10 +4,22 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 TODO
-* admin, user, non-user routing
-* Bootstrap templates
+Igor
+* Bootstrap templates: categories left right, search(name obrazok popis, zvysok v show), item( +user info)
 * deployment
+
+Jergus
+* admin, user, non-user routing
 * Paperclips for items
+* Validacia
+
+Routes:
+admin - categories(crud), users(crud), items(crud)
+non-user - categories(r), users(r-pri itemoch), items(r)
+user - categories(r), users(cru-svoje), items(crud-svoje)
+
+
+Nuda:
 * Refferences (comments)
 
 Things you may want to cover:
