@@ -27,11 +27,8 @@ ActiveRecord::Schema.define(version: 20160217153134) do
     t.string   "name"
     t.text     "content"
     t.decimal  "price"
-    t.integer  "time"
     t.integer  "unit"
-    t.string   "author"
     t.string   "location"
-    t.integer  "telephone"
     t.boolean  "rent"
     t.integer  "category_id"
     t.integer  "user_id"
@@ -61,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160217153134) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "telephone"
     t.string   "role"
     t.string   "password"
     t.datetime "created_at",      null: false
