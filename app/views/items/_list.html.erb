@@ -1,23 +1,4 @@
-
-<div class="panel">
-  <div class="panel-header">
-    <strong><%= @user.name %></strong>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <%= @user.email %>
-    </div>
-    <div class="row">
-     Telephone: <%= @user.telephone %>
-    </div>
-    <div class="row">
-      <%= link_to 'Edit', edit_user_path(@user) %>
-    </div>
-    
-  </div>
-</div>
-
-<% @user.items.each do |item| %>
+<% @items.each do |item| %>
     <div class="panel">
       <div class="panel-header">
         <h4><%= link_to item.name, item %></h4>
@@ -58,4 +39,3 @@
       </div>
     </div>
   <% end %>
-
