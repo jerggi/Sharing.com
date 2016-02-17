@@ -20,6 +20,9 @@ i6 = Item.create(name: "Hadica", content: "dlzka 10 metrov")
 i7 = Item.create(name: "Monitor", content: "27 palcov, led, full hd, hdmi + vga")
 i8 = Item.create(name: "Tlaciaren", content: "pridte si to vytlacit ale ku mne domov:D")
 
+igor = User.create(name: 'Igor', email: 'igor@sharing.com', password: 'igorjeadmin', role: 'admin')
+
+
 c1.items << [i1, i2]
 c2.items << [i3, i4]
 c3.items << [i5]

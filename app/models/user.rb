@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }
 
-  def editor?
-    self.role == 'editor'
+  def admin?
+    self.role == 'admin'
   end
 end
