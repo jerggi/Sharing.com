@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160216165049) do
   add_index "items", ["category_id"], name: "index_items_on_category_id"
 
   create_table "photos", force: :cascade do |t|
+    t.integer  "item_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"
@@ -49,9 +50,13 @@ ActiveRecord::Schema.define(version: 20160216165049) do
     t.datetime "avatar_updated_at"
   end
 
+  add_index "photos", ["item_id"], name: "index_photos_on_item_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "role"
+    t.string   "password"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
