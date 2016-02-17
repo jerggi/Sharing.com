@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/new'
 
   resources :items do
     get 'search', on: :collection
   end
-  
+
   resources :categories
   resources :users
 
@@ -13,6 +12,16 @@ Rails.application.routes.draw do
   get 'categories/:id' => 'categories#show'
 
   get 'items/:id' => 'items#show'
+
+  get 'signup' => 'users#new'
+
+  get 'login' => 'sessions#new'
+
+  post 'login' => 'sessions#create'
+
+  delete 'logout' => 'sessions#destroy'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

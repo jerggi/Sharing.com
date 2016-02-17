@@ -57,7 +57,9 @@
         <% end %>
       </select>
     </div>
-
+    <div class="field">
+      <%= file_field_tag "images[]", type: :file, multiple: true %>
+    </div>
 
     <div class="actions">
       <%= f.submit %>
