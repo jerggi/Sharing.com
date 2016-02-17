@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'items/:id' => 'items#show'
 
+  get 'users' => 'users#index'
+
   get 'signup' => 'users#new'
 
   get 'login' => 'sessions#new'
