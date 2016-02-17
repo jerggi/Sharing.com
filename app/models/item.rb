@@ -3,4 +3,6 @@ class Item < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates :name, presence: true
+  
 end
