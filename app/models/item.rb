@@ -3,5 +3,7 @@ class Item < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-
+  validates :name, presence: true
+  validates :price, presence: true, :format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0}
+  validates :location, presence: true
 end

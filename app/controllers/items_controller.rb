@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
-
   end
 
   # GET /items/1/edit
@@ -28,14 +27,15 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-    category = Category.find(params[:category])
+    @category = Category.find(params[:category])
     respond_to do |format|
       if @item.save
-        category.items << @item
+        @category.items << @item
         current_user.items << @item
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
+        all_categories
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
