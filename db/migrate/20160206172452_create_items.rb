@@ -4,11 +4,8 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.text :content
       t.decimal :price
-      t.integer :time
       t.integer :unit
-      t.string :author
       t.string :location
-      t.integer :telephone
       t.boolean :rent
       t.references :category, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true

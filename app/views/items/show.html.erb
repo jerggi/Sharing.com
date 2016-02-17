@@ -14,11 +14,9 @@
     </div>
     <div class="row">
       <div class="col-xs-2">Price:</div>
-      <div class="col-xs-1"><%= @item.price %></div>
-    </div>
-    <div class="row">
-      <div class="col-xs-2">Time:</div>
-      <div class="col-xs-1"><%= @item.time %> days</div>
+      <% enum = ['hour', 'day', 'month'] %>
+      
+      <div class="col-xs-3"><%= @item.price %> EUR per <%= enum[@item.unit] %></div>
     </div>
     <div class="row">
       <div class="col-xs-2">Rent:</div>
