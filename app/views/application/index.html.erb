@@ -6,7 +6,6 @@
   </div>
 
 
-  <p>Admin section .. </p>
 
 	<div class="row">
     <div class="col-xs-2">
@@ -24,7 +23,7 @@
     </div>
 	  <div class="row borders">
       <div class="col-xs-2">
-          <%= image_tag c.avatar.url(:thumb) %>
+          <%= image_tag(c.avatar.url(:thumb), size: "100") %>
       </div>
       <% if current_user && current_user.admin? %>
         <div class="col-xs-1">
@@ -38,7 +37,7 @@
       <% end %>
 	  </div>
 	<% end %>
-  
+
   <% if current_user && current_user.admin? %>
 	  <%= link_to 'Add category', new_category_path %>
   <% end %>
