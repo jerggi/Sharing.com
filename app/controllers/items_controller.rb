@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @photos = Item.find(params[:id]).photos
+    @user = Item.find(params[:id]).user
   end
 
   # GET /items/new
@@ -29,15 +29,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     category = Category.find(params[:category])
-    category.items << @item
     respond_to do |format|
       if @item.save
-        if params[:images]
-        #===== The magic is here ;)
-          params[:images].each { |image|
-            @gallery.pictures.create(image: image)
-          }
-        end
+        category.items << @item
+        current_user.items << @item
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
@@ -84,7 +79,7 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :content, :price, :time, :unit, :author, :location, :telephone, :rent, :photos)
+      params.require(:item).permit(:name, :content, :price, :time, :unit, :author, :location, :telephone, :rent, :avatar)
     end
 
     def all_categories

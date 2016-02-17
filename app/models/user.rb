@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }
 
+  has_many :items
+
   def admin?
     self.role == 'admin'
   end

@@ -1,0 +1,21 @@
+
+<div class="panel">
+  <div class="panel-header">
+    <strong><%= @user.name %></strong>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <%= @user.email %>
+    </div>
+    <% @user.items.each do |item| %>
+    <div class="row">
+      <div class="col-xs-2">
+        <%= link_to item.name, root_url + "items/#{item.id}" %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+

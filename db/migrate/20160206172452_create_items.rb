@@ -11,6 +11,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :telephone
       t.boolean :rent
       t.references :category, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

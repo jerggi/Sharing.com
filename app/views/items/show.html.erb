@@ -5,46 +5,36 @@
   </div>
   <div class="panel-body">
     <div class="row">
+      <div class="col-xs-2">
+            <%= image_tag(@item.avatar.url(:thumb), size: "100") %>
+      </div>
+    </div>
+    <div class="row">
       <%= @item.content %>
     </div>
-
     <div class="row">
-      <strong>Contract:</strong>
-    </div>
-    <div class="row">
-      <div class="col-xs-1">Price</div>
-      <div class="col-xs-1">Time</div>
-      <div class="col-xs-1">Rent</div>
-    </div>
-    <div class="row">
+      <div class="col-xs-2">Price:</div>
       <div class="col-xs-1"><%= @item.price %></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2">Time:</div>
       <div class="col-xs-1"><%= @item.time %> days</div>
-      <div class="col-xs-1"><%= @item.rent %> days</div>
-    </div>
-
-    <div class="row">
-      <strong>Contact:</strong>
     </div>
     <div class="row">
-      <div class="col-xs-1">User</div>
-      <div class="col-xs-1">Phone</div>
-      <div class="col-xs-1">Location</div>
+      <div class="col-xs-2">Rent:</div>
+      <div class="col-xs-1"><%= @item.rent %></div>
     </div>
     <div class="row">
-      <div class="col-xs-1">user link</div>
-      <div class="col-xs-1"><%= @item.telephone %></div>
+      <div class="col-xs-2">Location:</div>
       <div class="col-xs-1"><%= @item.location %></div>
     </div>
+    <div class="row">
+      <div class="col-xs-2">Added by</div>
+      <div class="col-xs-1">
+      <%= link_to @item.user.name, root_url + "users/" + @item.user.id.to_s %>
+      </div>
+    </div>
   </div>
 </div>
 
-
-<div class="row">
-  <div class="col-xs-2">
-    
-  </div>
-</div>
-
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to 'Edit', edit_item_path(@item) %>
