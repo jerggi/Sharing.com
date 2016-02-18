@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :all_categories, only: [:new, :edit ]
+  before_action :all_categories, only: [:new, :edit, :create ]
+  before_action :set_user, only: [:show, :edit, :destroy]
 
   # GET /items
   # GET /items.json
@@ -11,7 +12,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @user = Item.find(params[:id]).user
+
   end
 
   # GET /items/new
@@ -21,6 +22,8 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @user = Item.find(params[:id]).user
+    redirect_to '/' unless @user.id == current_user.id
   end
 
   # POST /items
@@ -35,7 +38,7 @@ class ItemsController < ApplicationController
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
-        all_categories
+
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
@@ -59,10 +62,14 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item.destroy
-    respond_to do |format|
-      format.html { redirect_to root_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+    if @user.id != current_user.id
+      redirect_to '/'
+    else
+      @item.destroy
+      respond_to do |format|
+        format.html { redirect_to root_url, notice: 'Item was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -75,6 +82,10 @@ class ItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
+    end
+
+    def set_user
+      @user = Item.find(params[:id]).user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
