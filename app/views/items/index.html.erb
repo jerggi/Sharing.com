@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Listing Items</h2>
-
-<%= render 'list' %>
-
-
-<%= link_to 'New Item', new_item_path %>
+<div class="panel">
+	<div class="panel-header">
+		<h4>Listing Items</h4>
+	</div>
+	<div class="panel-body">
+		<%= render 'list' %>
+	</div>
+	<div class="panel-footer">
+		<%= link_to 'New Item', new_item_path, class: "btn btn-default" %>
+	</div>
+</div>
 

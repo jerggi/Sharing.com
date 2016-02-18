@@ -1,25 +1,25 @@
 
 <div class="panel">
   <div class="panel-header">
-    <strong><%= @item.name %></strong>
+    <h4><%= @item.name %></h4>
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-xs-2">
+      <div class="col-xs-4 col-md-2">
             <%= image_tag(@item.avatar.url(:thumb), size: "100") %>
+      </div>
+      <div class="col-xs-5">
+            <%= @item.content %>
       </div>
     </div>
     <div class="row">
-      <%= @item.content %>
-    </div>
-    <div class="row">
-      <div class="col-xs-2">Price:</div>
+      <label class="col-xs-3">Price:</label>
       <% enum = ['hour', 'day', 'month'] %>
 
-      <div class="col-xs-3"><%= @item.price %> EUR per <%= enum[@item.unit] %></div>
+      <div class="col-xs-4"><%= @item.price %> EUR per <%= enum[@item.unit] %></div>
     </div>
     <div class="row">
-      <div class="col-xs-2">Rent:</div>
+      <label class="col-xs-3">Rent:</label>
       <div class="col-xs-1">
         <% if @item.rent %>
           Yes
@@ -29,13 +29,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-2">Location:</div>
+      <label class="col-xs-3">Location:</label>
       <div class="col-xs-1"><%= @item.location %></div>
     </div>
     <div class="row">
-      <div class="col-xs-2">Added by</div>
-      <div class="col-xs-1">
-      <%= link_to @item.user.name, root_url + "users/" + @item.user.id.to_s %>
+      <label class="col-xs-3">Added by 
+      </label> 
+      <div class="col-xs-2"> <%= link_to @item.user.name, root_url + "users/" + @item.user.id.to_s, class: "btn btn-link btn-xs" %>
       </div>
     </div>
   </div>
