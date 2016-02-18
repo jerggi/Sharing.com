@@ -10,9 +10,11 @@
     <div class="row">
      Telephone: <%= @user.telephone %>
     </div>
-    <div class="row">
-      <%= link_to 'Edit', edit_user_path(@user) %>
-    </div>
+    <% if @user.id == current_user.id %>
+      <div class="row">
+        <%= link_to 'Edit', edit_user_path(@user) %>
+      </div>
+    <% end %>
 
   </div>
 </div>

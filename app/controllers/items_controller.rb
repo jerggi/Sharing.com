@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    @user = Item.find(params[:id]).user
+
     redirect_to '/' unless @user.id == current_user.id
   end
 

@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def edit
+    redirect_to '/' unless @user.id == current_user.id
+  end
+
   def create
     @user = User.new(user_params)
     respond_to do |format|
