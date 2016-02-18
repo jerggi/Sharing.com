@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :require_admin, only: [:index, :destroy]
 
   def new
-  	@user = User.new
+    @user = User.new
   end
 
   def show
@@ -52,7 +52,8 @@ class UsersController < ApplicationController
     end
   end
 
-private
+  private
+
   def user_params
     params.require(:user).permit(:name, :telephone, :email, :password, :password_confirmation)
   end

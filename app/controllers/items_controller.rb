@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :all_categories, only: [:new, :edit, :create ]
+  before_action :all_categories, only: [:new, :edit, :create]
   before_action :set_user, only: [:show, :edit, :destroy]
 
   # GET /items
@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-
   end
 
   # GET /items/new
@@ -22,7 +21,6 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-
     redirect_to '/' unless @user.id == current_user.id
   end
 
@@ -79,21 +77,22 @@ class ItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
 
-    def set_user
-      @user = Item.find(params[:id]).user
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def item_params
-      params.require(:item).permit(:name, :content, :price, :unit, :location, :rent, :avatar)
-    end
+  def set_user
+    @user = Item.find(params[:id]).user
+  end
 
-    def all_categories
-      @categories = Category.all
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def item_params
+    params.require(:item).permit(:name, :content, :price, :unit, :location, :rent, :avatar)
+  end
+
+  def all_categories
+    @categories = Category.all
+  end
 end
