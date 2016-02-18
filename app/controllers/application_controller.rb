@@ -12,8 +12,16 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  #def require_admin
+  #  redirect_to root_url unless current_user =! nil && current_user.admin?
+  #end
+
   def require_admin
-    redirect_to '/' unless current_user.admin?
+    if current_user == nil
+      redirect_to root_url
+    elsif current_user.admin?
+      redirect_to root_url
+    end
   end
 
   # GET /items/new

@@ -4,20 +4,14 @@ one:
   name: MyString
   content: MyText
   price: 9.99
-  time: 1
   unit: 1
-  author: MyString
   location: MyString
-  telephone: 1
   rent: false
 
 two:
   name: MyString
   content: MyText
   price: 9.99
-  time: 1
   unit: 1
-  author: MyString
   location: MyString
-  telephone: 1
   rent: false
