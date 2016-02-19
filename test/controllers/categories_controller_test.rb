@@ -17,7 +17,7 @@ class CategoriesControllerTest < ActionController::TestCase
 
   test "successful update" do
     log_in_as(@admin)
-    name = "Test name"
+    name = "new name"
     patch :update, id: @category, category: { name: name }
     assert_not flash.empty?
     assert_redirected_to @category
@@ -26,7 +26,7 @@ class CategoriesControllerTest < ActionController::TestCase
   end
 
   test "unsuccessful update" do
-    name = "Test name"
+    name = "new name"
     patch :update, id: @category, category: { name: name }
     assert flash.empty?
     assert_redirected_to root_url
