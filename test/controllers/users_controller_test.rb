@@ -4,6 +4,7 @@ class UsersControllerTest < ActionController::TestCase
   def setup
     @user = users(:user)
     @user2 = users(:user2)
+    @admin = users(:admin)
     #log_in_as(@user)
   end
 
