@@ -30,4 +30,9 @@ class UserTest < ActiveSupport::TestCase
     user6 = User.new(name: "User", password: "qwertyuiop")
     assert_not user6.save
   end
+
+  test "successful save" do
+    user = User.new(name: "Rubocop", password: "K5gNufr585InIFEfeFE54", email: 'user@sharin.com')
+    assert user.save
+  end
 end

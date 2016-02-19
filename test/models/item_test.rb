@@ -33,4 +33,9 @@ class ItemTest < ActiveSupport::TestCase
     item = Item.new(name: "Miesacka", avatar: File.open(Rails.root.join('public', 'robots.txt')))
     assert_not item.save
   end
+
+  test "successful test" do
+    item = Item.new(name: "Miesacka", price: 10, location: 'Bratislava')
+    assert item.save
+  end
 end
