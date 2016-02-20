@@ -25,9 +25,4 @@ class SessionsControllerTest < ActionController::TestCase
     assert_nil session[:user_id]
     assert_redirected_to root_url
   end
-
-  #ako testovat?
-  test "create ..." do
-
-  end
 end

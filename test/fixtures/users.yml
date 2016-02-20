@@ -12,11 +12,11 @@ user:
   email: user@sharing.com
   telephone: MyString
   password: MyString
-  role: user
+  role: nil
 
 user2:
   name: MyString
   email: user2@sharing.com
   telephone: MyString
   password: MyString
-  role: user
+  role: nil
