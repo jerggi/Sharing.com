@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :all_categories, only: [:new, :edit, :create]
-  before_action :set_user, only: [:show, :edit, :destroy]
-
+  before_action :set_user, only: [:edit, :destroy]
+  before_action :require_user, only: [:new, :create, :edit, :update, :destroy]
   # GET /items
   # GET /items.json
   def index
@@ -21,17 +21,17 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    redirect_to '/' unless @user.id == current_user.id
+    redirect_to root_url if(@user && @user.id != current_user.id)
   end
 
   # POST /items
   # POST /items.json
   def create
     @item = Item.new(item_params)
-    @category = Category.find(params[:category])
+    @category = Category.find(params[:category]) unless params[:category].nil?
     respond_to do |format|
       if @item.save
-        @category.items << @item
+        @category.items << @item if @category
         current_user.items << @item
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
@@ -46,8 +46,11 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    redirect_to(root_url) and return if(@user && @user.id != current_user.id)
+    @category = Category.find(params[:category]) unless params[:category].nil?
     respond_to do |format|
       if @item.update(item_params)
+        @category.items << @item if @category
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
