@@ -44,10 +44,10 @@ class ItemsControllerTest < ActionController::TestCase
     assert_redirected_to(root_url + "login")
   end
 
-  #test "should show item" do
-  #  get :show, id: @item
-  #  assert_response :success
-  #end
+  test "should show item" do
+    get :show, id: @item
+    assert_response :success
+  end
 
   test "should get edit" do
     log_in_as @user
@@ -63,40 +63,42 @@ class ItemsControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
 
-
   test "should update item" do
     log_in_as(@user)
     name = "new name"
     patch :update, id: @item, item: { name: name }
-    #assert flash.empty?
     assert_redirected_to @item
     @item.reload
     assert_equal name, @item.name
   end
 
   test "should not update item when not owning user" do
-    #log_in_as @user2
     name = "new name"
     patch :update, id: @item2, item: { name: name }
     assert_redirected_to(root_url + "login")
     @item2.reload
     assert_not_equal name, @item2.name
-
-    log_in_as @user2
-    patch :update, id: @item2, item: { name: name }
-    #assert flash.empty?
-    #assert_redirected_to root_url
-    @item2.reload
-    #assert_not_equal name, @item2.name
   end
 
-
-
   test "should destroy item" do
-    #assert_difference('Item.count', -1) do
-    #  delete :destroy, id: @item
-    #end
+    log_in_as @user
+    assert_difference 'Item.count', -1 do
+      delete :destroy, id: @item
+    end
+    assert_redirected_to root_url
+  end
 
-    #assert_redirected_to items_path
+  test "should not destroy when not admin" do
+
+    assert_no_difference 'Item.count' do
+      delete :destroy, id: @item
+    end
+    assert_redirected_to root_url + "login"
+
+    log_in_as @user2
+    assert_no_difference 'Item.count' do
+      delete :destroy, id: @item
+    end
+    assert_redirected_to root_url
   end
 end

@@ -34,6 +34,25 @@ class CategoriesControllerTest < ActionController::TestCase
     assert_not_equal name, @category.name
   end
 
+  test "should show category" do
+    get :show, id: @category
+    assert_response :success
+  end
+
+  test "should get new" do
+    log_in_as @admin
+    get :new
+    assert_response :success
+  end
+
+  test "should not get new when not admin" do
+    get :new
+    assert_redirected_to root_url
+    log_in_as @user
+    get :new
+    assert_redirected_to root_url
+  end
+
   test "should redirect edit when not admin" do
     get :edit, id: @category
     assert_redirected_to root_url
@@ -47,6 +66,14 @@ class CategoriesControllerTest < ActionController::TestCase
     log_in_as @admin
     get :edit, id: @category
     assert_response :success
+  end
+
+  test "should destroy when admin" do
+    log_in_as @admin
+    assert_difference 'Category.count', -1 do
+      delete :destroy, id: @category
+    end
+    assert_redirected_to root_url
   end
 
   test "should not destroy when not admin" do
