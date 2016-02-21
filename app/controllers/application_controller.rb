@@ -12,12 +12,12 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' and return unless current_user
   end
 
-  #def require_admin
+  # def require_admin
   #  redirect_to root_url unless current_user =! nil && current_user.admin?
-  #end
+  # end
 
   def require_admin
-    if current_user == nil
+    if current_user.nil?
       redirect_to root_url and return
     elsif !current_user.admin?
       redirect_to root_url and return

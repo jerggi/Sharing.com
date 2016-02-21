@@ -30,7 +30,8 @@ class ItemsControllerTest < ActionController::TestCase
   test "should create item" do
     log_in_as @user
     assert_difference('Item.count') do
-      post :create, item: { content: @item.content, location: @item.location, name: @item.name, price: @item.price, rent: @item.rent, unit: @item.unit }
+      post :create, item: { content: @item.content, location: @item.location,
+      name: @item.name, price: @item.price, rent: @item.rent, unit: @item.unit }
     end
 
     assert_redirected_to item_path(assigns(:item))
@@ -38,7 +39,8 @@ class ItemsControllerTest < ActionController::TestCase
 
   test "should not create item when not logged in" do
     assert_no_difference('Item.count') do
-      post :create, item: { content: @item.content, location: @item.location, name: @item.name, price: @item.price, rent: @item.rent, unit: @item.unit }
+      post :create, item: { content: @item.content, location: @item.location,
+      name: @item.name, price: @item.price, rent: @item.rent, unit: @item.unit }
     end
 
     assert_redirected_to(root_url + "login")
@@ -89,7 +91,6 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test "should not destroy when not admin" do
-
     assert_no_difference 'Item.count' do
       delete :destroy, id: @item
     end
