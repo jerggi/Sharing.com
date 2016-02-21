@@ -13,7 +13,7 @@ class ActiveSupport::TestCase
 
   # Logs in a test user.
   def log_in_as(user, options = {})
-    password    = options[:password]    || 'password'
+    password = options[:password] || 'password'
     if integration_test?
       post login_path, session: { email:       user.email,
                                   password:    password }
@@ -23,9 +23,9 @@ class ActiveSupport::TestCase
   end
 
   private
-
-    # Returns true inside an integration test.
-    def integration_test?
-      defined?(post_via_redirect)
-    end
+  
+  # Returns true inside an integration test.
+  def integration_test?
+    defined?(post_via_redirect)
+  end
 end

@@ -5,7 +5,7 @@ class UsersControllerTest < ActionController::TestCase
     @user = users(:user)
     @user2 = users(:user2)
     @admin = users(:admin)
-    #log_in_as(@user)
+    # log_in_as(@user)
   end
 
   test "should get index" do
@@ -37,13 +37,13 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   # FAILING :(
-  #test "successful edit" do
+  # test "successful edit" do
   #  log_in_as(@user)
   #  new_name = "new_name"
   #  patch :update, id: @user, user: { name: new_name }
   #  @user.reload
   #  assert_equal new_name, @user.name
-  #end
+  # end
 
   test "user can update only his profile" do
     log_in_as(@user2)

@@ -5,29 +5,28 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-c1 = Category.create(name: "Clothes", avatar: File.open(Rails.root.join('public', 'images','clothes.jpeg')))
-c2 = Category.create(name: "Cars", avatar: File.open(Rails.root.join('public', 'images','cars.png')))
-c3 = Category.create(name: "Kitchen", avatar: File.open(Rails.root.join('public', 'images','kitchen.png')))
-c4 = Category.create(name: "Tools", avatar: File.open(Rails.root.join('public', 'images','tools.png')))
-c5 = Category.create(name: "Electronics", avatar: File.open(Rails.root.join('public', 'images','electronics.jpg')))
+c1 = Category.create(name: "Clothes", avatar: File.open(Rails.root.join('public', 'images', 'clothes.jpeg')))
+c2 = Category.create(name: "Cars", avatar: File.open(Rails.root.join('public', 'images', 'cars.png')))
+c3 = Category.create(name: "Kitchen", avatar: File.open(Rails.root.join('public', 'images', 'kitchen.png')))
+c4 = Category.create(name: "Tools", avatar: File.open(Rails.root.join('public', 'images', 'tools.png')))
+c5 = Category.create(name: "Electronics", avatar: File.open(Rails.root.join('public', 'images', 'electronics.jpg')))
 
-i1 = Item.create(name: "Helmet", content: "prilba patri k vybave", price: 3, unit: 1, location: "Bratislava", rent: false,
-avatar: File.open(Rails.root.join('public', 'images','helmet.jpg')))
-i2 = Item.create(name: "Ski jacket", content: "lyziarska bunda velkost L", price: 5, unit: 1, location: "Brno", rent: false,
-avatar: File.open(Rails.root.join('public', 'images','skijacket.jpg')))
-i3 = Item.create(name: "Prives", content: "nosnost 1000 kg", price: 15, unit: 1, location: "Bratislava", rent: false,
-avatar: File.open(Rails.root.join('public', 'images','trailer.jpg')))
-i4 = Item.create(name: "Skoda oktavia", content: "diesiel, manual, nefajcit vnutri", price: 20, unit: 1, location: "Brno", rent: false,
-avatar: File.open(Rails.root.join('public', 'images','octavia.jpg')))
-i5 = Item.create(name: "Mixer", content: "Vhodny na mixovanie vsetkeho", price: 9, unit: 1, location: "Bratislava", rent: false,
-avatar: File.open(Rails.root.join('public', 'images','mixer.jpg')))
-i6 = Item.create(name: "Hadica", content: "dlzka 10 metrov", price: 1, unit: 0, location: "Bratislava", rent: false,
-avatar: File.open(Rails.root.join('public', 'images','hadica.jpg')))
-i7 = Item.create(name: "Monitor", content: "27 palcov, led, full hd, hdmi + vga", price: 1, unit: 0, location: "Brno", rent: false,
-avatar: File.open(Rails.root.join('public', 'images','monitor.jpg')))
-i8 = Item.create(name: "Tlaciaren", content: "pridte si to vytlacit ale ku mne domov:D", price: 9, unit: 1, location: "Brno", rent: false,
-avatar: File.open(Rails.root.join('public', 'images','printer.jpg')))
-
+i1 = Item.create(name: "Helmet", content: "prilba patri k vybave", price: 3, unit: 1,
+location: "Bratislava", rent: false, avatar: File.open(Rails.root.join('public', 'images', 'helmet.jpg')))
+i2 = Item.create(name: "Ski jacket", content: "lyziarska bunda velkost L", price: 5,
+unit: 1, location: "Brno", rent: false, avatar: File.open(Rails.root.join('public', 'images', 'skijacket.jpg')))
+i3 = Item.create(name: "Prives", content: "nosnost 1000 kg", price: 15, unit: 1,
+location: "Bratislava", rent: false, avatar: File.open(Rails.root.join('public', 'images', 'trailer.jpg')))
+i4 = Item.create(name: "Skoda oktavia", content: "diesiel, manual, nefajcit vnutri", price: 20, unit: 1,
+location: "Brno", rent: false, avatar: File.open(Rails.root.join('public', 'images', 'octavia.jpg')))
+i5 = Item.create(name: "Mixer", content: "Vhodny na mixovanie vsetkeho", price: 9, unit: 1, location: "Bratislava",
+rent: false, avatar: File.open(Rails.root.join('public', 'images', 'mixer.jpg')))
+i6 = Item.create(name: "Hadica", content: "dlzka 10 metrov", price: 1, unit: 0, location: "Bratislava",
+rent: false, avatar: File.open(Rails.root.join('public', 'images', 'hadica.jpg')))
+i7 = Item.create(name: "Monitor", content: "27 palcov, led, full hd, hdmi + vga", price: 1, unit: 0,
+location: "Brno", rent: false, avatar: File.open(Rails.root.join('public', 'images', 'monitor.jpg')))
+i8 = Item.create(name: "Tlaciaren", content: "pridte si to vytlacit ale ku mne domov:D", price: 9, unit: 1,
+location: "Brno", rent: false, avatar: File.open(Rails.root.join('public', 'images', 'printer.jpg')))
 
 igor = User.create(name: 'Igor', email: 'igor@sharing.com', password: 'igorjeadmin', role: 'admin')
 fero = User.create(name: 'Fero', email: 'fero@gmail.com', password: 'ferojeuser', role: nil)

@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    redirect_to root_url if(@user && @user.id != current_user.id)
+    redirect_to root_url if @user && @user.id != current_user.id
   end
 
   # POST /items
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
-    redirect_to(root_url) and return if(@user && @user.id != current_user.id)
+    redirect_to(root_url) && return if @user && @user.id != current_user.id
     @category = Category.find(params[:category]) unless params[:category].nil?
     respond_to do |format|
       if @item.update(item_params)

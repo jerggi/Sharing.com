@@ -92,14 +92,14 @@ class CategoriesControllerTest < ActionController::TestCase
   test "successful create" do
     log_in_as @admin
     assert_difference 'Category.count' do
-      post :create, category: {name: "Cars"}
+      post :create, category: { name: "Cars" }
     end
     assert_redirected_to category_path(assigns(:category))
   end
 
   test "should not create when not admin" do
     assert_no_difference 'Category.count' do
-      post :create, category: {name: "Cars"}
+      post :create, category: { name: "Cars" }
     end
     assert_redirected_to root_url
   end
