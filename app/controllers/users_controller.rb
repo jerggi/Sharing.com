@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   before_action :require_admin, only: [:index, :destroy]
 
+
+
   def new
     @user = User.new
   end
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    redirect_to root_url unless !current_user.nil? && @user.id == current_user.id
+    redirect_to root_url unless current_user != nil && @user.id == current_user.id
   end
 
   def create
@@ -33,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if !current_user.nil? && @user.id == current_user.id
+    if current_user != nil && @user.id == current_user.id
       respond_to do |format|
         if @user.update(user_params)
           format.html { redirect_to @user, notice: 'User was successfully updated.' }
