@@ -1,44 +1,19 @@
+<%= render template: 'layouts/search_item'%>
+
 <div class="panel">
 	<div class="panel-header">
 		<h4>Search results:</h4>
 	</div>
 	<div class="panel-body">
 		<% @items.each do |item| %>
-			<div class="panel">
-				<div class="panel-header">
-					<h4><%= link_to item.name, item, class: "btn btn-default" %></h4>
-				</div>
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-xs-2">
-							<%= image_tag(item.avatar.url(:thumb), size: "100") %>
-						</div>
-					</div>
-
-					<form class"form-horizontal">
-						<div class="row">
-						<div class="form-group">
-							<label class="control-label col-xs-2">
-								Content:
-							</label>
-							<div class="col-xs-4">
-								<%= item.content %>
-							</div>
-						</div>
-						</div>
-						<div class="row">
-						<div class="form-group">
-							<label class="control-label col-xs-2">
-								Price:
-							</label>
-							<div class="col-xs-1">
-								<%= item.price %>
-							</div>
-						</div>
-						</div>
-					</form>
-				</div>
-			</div>
+			<% @item = item %>
+			<% if current_user == nil %>
+        <%= render template: 'layouts/item_list', json: @item %>
+      <% elsif current_user.admin?%>
+        <%= render template: 'layouts/item_list_actions', json: @item %>
+      <% else %>
+        <%= render template: 'layouts/item_list', json: @item %>
+      <% end %>
 		<% end %>
 	</div>
 </div>

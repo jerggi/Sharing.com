@@ -1,0 +1,10 @@
+<div class="text-center">
+  <%= form_tag('/items/search', method: "get") do %>
+  	<div class="field form-group">
+      <div class="row">
+        <%= text_field_tag :query %>
+        <%= submit_tag "Search", class: "btn-md btn-primary"%>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,31 @@
+
+    <div class="panel">
+      <div class="panel-header">
+        <h4><%= link_to @item.name, @item, class: "btn btn-default" %></h4>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-2">
+            <%= image_tag(@item.avatar.url(:thumb), size: "100") %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-xs-4 col-md-2">
+            <strong>Content:</strong>
+          </div>
+          <div class="col-xs-8 col-md-4">
+            <%= @item.content %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-md-2">
+            <strong>Price:</strong>
+            
+          </div>
+          <div class="col-xs-8 col-md-4">
+            <%= @item.price %>
+          </div>
+        </div>
+      </div>
+    </div>

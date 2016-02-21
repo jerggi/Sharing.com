@@ -1,11 +1,4 @@
-  <div class="text-center">
-  	<%= form_tag('/items/search', method: "get") do %>
-  	  <%= text_field_tag :query %>
-  	  <%= submit_tag "Search", class: "btn-md btn-primary"%>
-  	<% end %>
-  </div>
-
-
+  <%= render template: 'layouts/search_item'%>
 
 	<div class="panel">
     <div class="panel-header">

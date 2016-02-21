@@ -1,11 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <div class="panel">
 	<div class="panel-header">
 		<h4>Listing Items</h4>
 	</div>
 	<div class="panel-body">
-		<%= render 'list' %>
+		<% @items.each do |item| %>
+			<% @item = item %>
+			<%= render template: 'layouts/item_list_actions', json: @item %>
+		<% end %>
 	</div>
 	<div class="panel-footer">
 		<%= link_to 'New Item', new_item_path, class: "btn btn-default" %>

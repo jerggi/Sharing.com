@@ -5,22 +5,22 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-xs-4 col-md-2">
+      <div class="col-xs-8 col-md-3">
             <%= image_tag(@item.avatar.url(:thumb), size: "100") %>
       </div>
-      <div class="col-xs-5">
+      <div class="col-xs-4 col-md-6">
             <%= @item.content %>
       </div>
     </div>
     <div class="row">
-      <label class="col-xs-3">Price:</label>
+      <label class="col-xs-8 col-md-3">Price:</label>
       <% enum = ['hour', 'day', 'month'] %>
 
-      <div class="col-xs-4"><%= @item.price %> EUR per <%= enum[@item.unit] %></div>
+      <div class="col-xs-4 col-md-3"><%= @item.price %> EUR per <%= enum[@item.unit] %></div>
     </div>
     <div class="row">
-      <label class="col-xs-3">Rent:</label>
-      <div class="col-xs-1">
+      <label class="col-xs-8 col-md-3">Rent:</label>
+      <div class="col-xs-4 col-md-3">
         <% if @item.rent %>
           Yes
         <% else %>
@@ -29,13 +29,13 @@
       </div>
     </div>
     <div class="row">
-      <label class="col-xs-3">Location:</label>
-      <div class="col-xs-1"><%= @item.location %></div>
+      <label class="col-xs-8 col-md-3">Location:</label>
+      <div class="col-xs-4 col-md-3"><%= @item.location %></div>
     </div>
     <div class="row">
-      <label class="col-xs-3">Added by 
+      <label class="col-xs-8 col-md-3">Added by 
       </label> 
-      <div class="col-xs-2"> <%= link_to @item.user.name, root_url + "users/" + @item.user.id.to_s, class: "btn btn-link btn-xs" %>
+      <div class="col-xs-4 col-md-3"> <%= link_to @item.user.name, root_url + "users/" + @item.user.id.to_s, class: "btn btn-link btn-xs" %>
       </div>
     </div>
   </div>
